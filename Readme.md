@@ -11,6 +11,14 @@ easily from non-socket.io processes.
 
 ```js
 var io = require('socket.io-emitter')({ host: '127.0.0.1', port: 6379 });
+  or
+var io= require('socket.io-emitter')({
+    host: '127.0.0.1',
+    port: 6378,
+    opts: { password: '123456', db: 0 }
+});
+
+
 setInterval(function(){
   io.emit('time', new Date);
 }, 5000);
@@ -47,6 +55,12 @@ var io = require('socket.io-emitter')(Cluster);
 
 ```js
   var io = require('socket.io-emitter')({ host: '127.0.0.1', port: 6379 });
+  or
+  var io= require('socket.io-emitter')({
+    host: '127.0.0.1',
+    port: 6378,
+    opts: { password: '123456', db: 0 }
+  });
 
   // sending to all clients
   io.emit('broadcast', /* ... */);
